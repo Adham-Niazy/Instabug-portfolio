@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "portfolio-Task": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/portfolio-Task",
+            "outputPath": "dist/portfolio-Task/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -121,8 +121,68 @@
               "devServerTarget": "portfolio-Task:serve:production"
             }
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/portfolio-Task/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json",
+            "externalDependencies": [
+              "@firebase/firestore"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": false,
+              "optimization": true
+            }
+          }
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "options": {
+            "browserTarget": "portfolio-Task:build",
+            "serverTarget": "portfolio-Task:server"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "portfolio-Task:build:production",
+              "serverTarget": "portfolio-Task:server:production"
+            }
+          }
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "browserTarget": "portfolio-Task:build:production",
+            "serverTarget": "portfolio-Task:server:production",
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "ssr": true
+          }
         }
       }
-    }},
-  "defaultProject": "portfolio-Task"
+    }
+  },
+  "defaultProject": "portfolio-Task",
+  "cli": {
+    "analytics": false
+  }
 }

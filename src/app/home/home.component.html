@@ -1,0 +1,130 @@
+<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////      About Me Section      //////////////////////////////////////////////////// -->
+
+<!-- Home section  -->
+<section class="home-section">
+  <div class="container">
+    <!-- First CHILD -->
+    <div class="home-section__caption">
+      <div class="holder">
+        <span class="intro">
+          Hello I'm
+        </span>
+        <h1 class="heading-primary">Adham Niazy</h1>
+        <h4> Junior Front-End Developer </h4>
+        <p>Experienced Junior Front-end developer with a demonstrated history of working in the computer software industry. Skilled in JavaScript and it's framework Angular8. </p>
+        <div class="sizing">
+          <input (click)="toggleTheme()" type="checkbox" id="switch" name="theme"/><label for="switch">Toggle</label>
+        </div>
+      </div>
+
+    </div>
+    <!-- SECOND CHILD  -->
+    <div class="home-section__image">
+      <img src="../../assets/Imgs/PicsArt_05-11-06.00.36.png" alt="my photo">
+    </div>
+  </div>
+</section>
+
+<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////      Project Section      //////////////////////////////////////////////////// -->
+
+
+<section class="projects-section" id="porfolio">
+  <div class="container">
+    <h2 class="heading">
+      Have a look on my Projects
+    </h2>
+
+    <div class="projects-container">
+      <div class="project" *ngFor="let Project of Project" [routerLink]="['/Home',Project.id]">
+        <div class="project__image">
+          <img [src]="Project.images[0]">
+        </div>
+        <div class="project__caption">
+          <h2 class="project__caption--heading">
+            {{ Project.name }}
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////      CONTACT Section      //////////////////////////////////////////////////// -->
+
+<section class="section-book" id="contact">
+  <div class="container">
+      <div class="book">
+          <div class="book-form">
+                  <h2 class="heading-secondary">
+                      keep in Touch
+                  </h2>
+              <form
+                    class="form"
+                    [formGroup]="contactForm"
+                    (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <input type="text"
+                           class="form-input"
+                           placeholder="Full Name"
+                           id="name"
+                           formControlName="name">
+                    <label for="name" class="form-label">Full Name</label>
+                    <p style="font-size: 1.2rem; margin-left: 1rem; margin-top: 1rem; color: red;" *ngIf="!contactForm.get('name').valid && contactForm.get('name').touched">Please enter at least 5 characters.</p>
+                </div>
+                <div class="form-group">
+                    <input type="email"
+                           class="form-input"
+                           placeholder="Email address"
+                           id="email"
+                           formControlName="email">
+                    <label for="email" class="form-label">Email Address</label>
+                    <p style="font-size: 1.2rem; margin-left: 1rem; margin-top: 1rem; color: red;" *ngIf="!contactForm.get('email').valid && contactForm.get('email').touched">Please enter a valid email.</p>
+                </div>
+                <div class="form-group">
+                  <input type="text"
+                         class="form-input"
+                         placeholder="Subject"
+                         id="subject"
+                         formControlName="subject">
+                  <label for="subject" class="form-label">Subject</label>
+                  <p style="font-size: 1.2rem; margin-left: 1rem; margin-top: 1rem; color: red;" *ngIf="!contactForm.get('subject').valid && contactForm.get('subject').touched">Please enter at least 10 characters.</p>
+                </div>
+                <button class="btn">Submit</button>
+              </form>
+            </div>
+          </div>
+      </div>
+  </section>
+<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////      FOOTER Section      //////////////////////////////////////////////////// -->
+<section class="footer-section">
+  <!-- first child  -->
+  <div class="logo">
+    Adham Niazy
+  </div>
+  <!-- second child  -->
+  <div class="links">
+    <a href="https://www.facebook.com/adham.niazy77" target="_blank"><i class="fa fa-facebook"></i></a>
+    <a href="https://www.linkedin.com/in/adham-niazy-3a81a7186/" target="_blank"><i class="fa fa-linkedin"></i></a>
+    <a href="https://github.com/Adham-Niazy" target="_blank"><i class="fa fa-github"></i></a>
+    <a href="https://www.instagram.com/adham_niazy/?hl=en" target="_blank"><i class="fa fa-instagram"></i></a>
+    <a href="https://twitter.com/AdhamNiazy?s=09" target="_blank"><i class="fa fa-twitter"></i></a>
+
+    <!-- https://www.instagram.com/adham_niazy/?hl=en  -->
+  </div>
+  <!-- third child  -->
+  <div class="copyrights">
+    <p>
+      Built by <a class="mySign" href="#">ADHAM NIAZY</a>. 70% of this site is my design and other reusable components from my past projects & inspiration of other websites but, the code is 100% Mine. &copy; copyrights 2020.
+    </p>
+  </div>
+</section>
+

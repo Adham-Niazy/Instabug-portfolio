@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "instabug-portfolio": {
+      "hosting": {
+        "portfolio-Task": [
+          "instabug-portfolio"
+        ]
+      }
+    }
+  }
+}

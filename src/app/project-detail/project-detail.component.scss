@@ -1,0 +1,201 @@
+@import '../../mediaQuery_variables.scss';
+
+.project-section {
+  background-color: var(--bg);
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  @media only screen and (min-width: $bp-normal) {
+    background-image: linear-gradient(70deg, var(--bg) 0%,var(--bg) 50%, var(--color-primary) 50%);
+  }
+
+
+  .project {
+    margin-top: 12rem;
+    border-radius: 4px;
+    @media only screen and (min-width: $bp-normal) {
+      width: 80%;
+      margin: 12rem auto 6rem;
+    }
+
+    &-gallery {
+      display: flex;
+      width: 100%;
+      img {
+        width: 33.33%;
+      }
+    }
+
+    &-overview {
+
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      h2 {
+        font-family: 'Kaushan Script', cursive;
+        font-weight: 400;
+        font-size: 2.5rem;
+        color: var(--color-primary);
+        margin-right: auto;
+        margin-left: 1rem;
+
+        @media only screen and (min-width: $bp-normal) {
+          margin-left: 4rem;
+        }
+
+      }
+
+      &__location {
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        @media only screen and (min-width: $bp-normal) {
+          font-size: 1.4rem;
+        }
+
+        .btn-outline {
+          display: inline-block;
+          border: none;
+          color: var(--color-primary);
+          font-size: inherit;
+          background-color: transparent;
+          border-bottom: 1px solid currentColor;
+          cursor: pointer;
+          padding-bottom: 2px;
+          transition: all .2s;
+          text-decoration: none;
+          & span {
+              margin-left: 3px;
+              transition: margin-left .2s;
+          }
+
+          &:hover {
+              color: var(--heading-tertiary);
+
+              & span {
+                  margin-left: 8px;
+              }
+          }
+
+          &:focus {
+              outline: none;
+          }
+        }
+      }
+
+      &__rating {
+        padding: 1.5rem;
+        align-self: stretch;
+        background-color: var(--color-primary);
+        color: #fff;
+        margin-left: 3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        @media only screen and (min-width: $bp-normal) {
+          padding: 3rem;
+        }
+        &-average {
+            font-size: 2.25rem;
+            font-weight: 300;
+            margin-bottom: -3px;
+        }
+
+        &-count {
+            font-size: .8rem;
+            text-transform: uppercase;
+            @media only screen and (min-width: $bp-normal) {
+              font-size: 1rem;
+            }
+        }
+      }
+    }
+
+    .description {
+      background-color: #F9F8F8;
+      padding: 3rem;
+      @media only screen and (min-width: $bp-normal) {
+        padding: 5rem;
+      }
+
+
+      &-container {
+        background-color: #fff;
+        box-shadow: 0 2rem 5rem rgba(0,0,0,0.06);
+        padding: 2rem;
+        @media only screen and (min-width: $bp-smallest) {
+          padding: 4rem;
+        }
+
+        @media only screen and (min-width: $bp-normal) {
+          padding: 5rem;
+        }
+      }
+
+      &-paragraph {
+        font-size: 1.2rem;
+        padding-bottom: 2rem;
+        @media only screen and (min-width: $bp-smallest) {
+          font-size: 1.4rem;
+        }
+      }
+
+      .list {
+        list-style: none;
+        padding: 2rem 0 0;
+        border-top: 1px solid #eeeeee;
+        display: flex;
+        flex-wrap: wrap;
+        @media only screen and (min-width: $bp-smallest) {
+          font-size: 1.4rem;
+          padding: 3rem 0 0;
+        }
+
+        &__item {
+            flex: 0 0 50%;
+            margin-bottom: .7rem;
+        }
+        // FOR USING SVG DIRECT IN CSS
+        &__item::before {
+            content: "";
+            display: inline-block;
+            width: 1rem;
+            height: 1rem;
+            margin-right: .7rem;
+            // BUT FOR NEW ONE WE WILL USE MASKS
+            background-color: var(--color-primary);
+            -webkit-mask-image: url(../../assets/Imgs/SVG/chevron-thin-right.svg);
+            -webkit-mask-size: cover;
+            mask-image: url(../../assets/Imgs/SVG/chevron-thin-right.svg);
+            mask-size: cover;
+
+
+            // THOSE TWO PROPERTIES ARE FOR OLDER BROWSER
+            background-image: url(../../assets/Imgs/SVG/chevron-thin-right.svg);
+            background-size: cover;
+        }
+      }
+    }
+  }
+}
+
+
+.btn {
+  padding: 1.2rem 2rem;
+  border: none;
+  background-color: var(--color-primary);
+  color: var(--sub);
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 2rem;
+
+  &:focus {
+    outline: none;
+  }
+
+}
